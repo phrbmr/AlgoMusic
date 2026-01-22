@@ -1,16 +1,15 @@
 // "Lemon and Salt" @by phrbmr
 
-
 setcpm(120/4)
 
 const rit_pat = "1 [1 1] [1]@0.5 1 1 [1 1] [1 1] ~ [1]@0.5"
 
 
-_: s("hh").struct(rit_pat).slow(2).gain(".7 .3 .4").delay(".7 .3 .4").o(1).pan(rand)
-_$: s('bd').struct("1 ~ [1 1]? ~").gain("[.3 ~ [.1 .2] ~]").o(1).room(2).pan(rand)
+$: s("hh").struct(rit_pat).slow(2).gain(".7 .3 .4").delay(".7 .3 .4").o(1).pan(rand)
+$: s('bd').struct("1 ~ [1 1]? ~").gain("[.3 ~ [.1 .2] ~]").o(1).room(2).pan(rand)
 
 
-_$: note(`<
+$: note(`<
 [c3 ~ d3 f3 e3 ~ c4]
 [c3 ~ d3 f3 e3 ~ d4]
 >`).sound("sine").trans(-12)
@@ -18,7 +17,7 @@ _$: note(`<
   .room(2).lpf(100).o(2).fm(0)
   ._scope()
 
-_$: n("<1 [3 5] ~ 0 [3 3] 1>".add(rand.range(-2, 2))).scale("c5: major")
+$: n("<1 [3 5] ~ 0 [3 3] 1>".add(rand.range(-2, 2))).scale("c5: major")
   .sound("square")
   .lpenv("<4 2 1 2 4>*2").lpf(500).delay(".7 .3 .4")
   .o(3).gain(.5).detune(rand)
