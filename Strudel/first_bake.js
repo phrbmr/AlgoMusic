@@ -1,5 +1,5 @@
 // "First Bake" @by phrbmr
-// @deatils first exercise on using Strudel
+// @details first exercise on using Strudel
 
 
 $drumms: s(`<

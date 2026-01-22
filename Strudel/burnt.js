@@ -1,5 +1,5 @@
 // "Burnt" @by phrbmr
-// @deatils second exercise on using Strudel
+// @details second exercise on using Strudel
 
 
 let pat_1 = "c2 <eb2 <g2 g1> <eb1 eb2> <~ c1>>" 
