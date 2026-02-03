@@ -3,8 +3,9 @@
 
 setcpm(60/4)
 
+let amb_pattern = "0 <2 [2 4 2 8]> <7> <5 9>"
 
-$ambience: n(`0 <2 [2 4 2 8]> <7> <5 9>`.add("<-12>")).scale("F:minor").o(1)
+$ambience: n(amb_pattern.add("<-12>")).scale("F:minor").o(1)
   .pan(rand.range(.2, .8))
   ._scope()
 
@@ -40,3 +41,17 @@ $Noise: n("hh(8,8,0)").s("<white>/2").o(6).gain(.01)
   .duck(6).duckattack(.5).duckdepth(.3).room(5).lpf(sine.range(500, 8000).slow(16))
   .pan(sine.range(.4, .7).slow(8))
   ._scope()
+
+
+
+await initHydra()
+
+osc(5, -.1, .5).rotate(0, .2).kaleid().repeat(5).out(o0)
+noise(4).color(-2, 1).colorama().out(o1)
+shape(3).blend(shape(H(amb_pattern)).color(5, 0)).repeat(3, 2).scrollX(.01, .01).color(1, 0).colorama(2).rotate(0, -.01).blend(shape(4, 0.4).rotate(0, 0.01)).out(o2)
+
+
+
+src(o0).blend(noise(100)).blend(o2).modulate(o1).out(o3)
+render(o3)
+
